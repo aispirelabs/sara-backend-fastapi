@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+pymongo
+passlib
+python-jose
+sentence_transformers
+PyJWT
+bcrypt
+langchain_community
+langchain_mongodb
+langchain_core
+beautifulsoup4
+langchain-google-genai
+rank-bm25
+requests

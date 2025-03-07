@@ -1,0 +1,672 @@
+2025-03-07 02:13:01,814 - logger - ERROR - Failed to Fetch Assistant Details Bot Token: d2bf5104-da2d-42d6-9b69-2daa0c2be67d - Error : module 'os' has no attribute 'get_env'
+2025-03-07 02:13:01,815 - logger - ERROR - Error handling chat request: 'data'
+Traceback (most recent call last):
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\main.py", line 42, in chat
+    return JSONResponse({"message":assistant['data']['message']})
+                                   ~~~~~~~~~^^^^^^^^
+KeyError: 'data'
+2025-03-07 02:14:20,537 - logger - ERROR - Failed to Fetch Assistant Details Bot Token: d2bf5104-da2d-42d6-9b69-2daa0c2be67d - Error : module 'os' has no attribute 'get_env'
+2025-03-07 02:14:20,547 - logger - ERROR - Error handling chat request: 'data'
+Traceback (most recent call last):
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\main.py", line 43, in chat
+    return JSONResponse({"message":assistant['data']['message']})
+                                   ~~~~~~~~~^^^^^^^^
+KeyError: 'data'
+2025-03-07 02:16:48,983 - logger - ERROR - Failed to Fetch Assistant Details Bot Token: d2bf5104-da2d-42d6-9b69-2daa0c2be67d - Error : unsupported operand type(s) for +: 'NoneType' and 'str'
+2025-03-07 02:16:48,983 - logger - ERROR - Error handling chat request: 'data'
+Traceback (most recent call last):
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\main.py", line 43, in chat
+    return JSONResponse({"message":assistant['data']['message']})
+                                   ~~~~~~~~~^^^^^^^^
+KeyError: 'data'
+2025-03-07 02:17:32,250 - logger - ERROR - Failed to Fetch Assistant Details Bot Token: d2bf5104-da2d-42d6-9b69-2daa0c2be67d - Error : Expecting value: line 1 column 1 (char 0)
+2025-03-07 02:17:32,250 - logger - ERROR - Error handling chat request: 'data'
+Traceback (most recent call last):
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\main.py", line 43, in chat
+    return JSONResponse({"message":assistant['data']['message']})
+                                   ~~~~~~~~~^^^^^^^^
+KeyError: 'data'
+2025-03-07 02:17:56,293 - logger - ERROR - Failed to Fetch Assistant Details Bot Token: d2bf5104-da2d-42d6-9b69-2daa0c2be67d - Error : Expecting value: line 1 column 1 (char 0)
+2025-03-07 02:17:56,296 - logger - ERROR - Error handling chat request: 'data'
+Traceback (most recent call last):
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\main.py", line 43, in chat
+    return JSONResponse({"message":assistant['data']['message']})
+                                   ~~~~~~~~~^^^^^^^^
+KeyError: 'data'
+2025-03-07 02:25:39,499 - logger - ERROR - Failed to Fetch Assistant Details Bot Token: d2bf5104-da2d-42d6-9b69-2daa0c2be67d - Error : Expecting value: line 1 column 1 (char 0)
+2025-03-07 02:25:39,500 - logger - ERROR - Error handling chat request: 'data'
+Traceback (most recent call last):
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\main.py", line 43, in chat
+    return JSONResponse({"message":assistant['data']['message']})
+                                   ~~~~~~~~~^^^^^^^^
+KeyError: 'data'
+2025-03-07 02:26:23,038 - logger - ERROR - Failed to Fetch Assistant Details Bot Token: d2bf5104-da2d-42d6-9b69-2daa0c2be67d - Error : Expecting value: line 1 column 1 (char 0)
+2025-03-07 02:26:23,038 - logger - ERROR - Error handling chat request: 'data'
+Traceback (most recent call last):
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\main.py", line 43, in chat
+    return JSONResponse({"message":assistant['data']['message']})
+                                   ~~~~~~~~~^^^^^^^^
+KeyError: 'data'
+2025-03-07 02:29:07,822 - logger - ERROR - Failed to Fetch Assistant Details Bot Token: d2bf5104-da2d-42d6-9b69-2daa0c2be67d - Error : Expecting value: line 1 column 1 (char 0)
+2025-03-07 02:29:07,822 - logger - ERROR - Error handling chat request: 'data'
+Traceback (most recent call last):
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\main.py", line 43, in chat
+    return JSONResponse({"message":assistant['data']['message']})
+                                   ~~~~~~~~~^^^^^^^^
+KeyError: 'data'
+2025-03-07 02:29:39,583 - logger - ERROR - Failed to Fetch Assistant Details Bot Token: d2bf5104-da2d-42d6-9b69-2daa0c2be67d - Error : Expecting value: line 1 column 1 (char 0)
+2025-03-07 02:29:39,588 - logger - ERROR - Error handling chat request: 'data'
+Traceback (most recent call last):
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\main.py", line 43, in chat
+    return JSONResponse({"message":assistant['data']['message']})
+                                   ~~~~~~~~~^^^^^^^^
+KeyError: 'data'
+2025-03-07 02:30:33,498 - logger - ERROR - Error fetching chat history for session_id: session-d2bf5104-da2d-42d6-9b69-2daa0c2be67d-1741293400402-shlak2woc - 'function' object has no attribute 'find_one'
+2025-03-07 02:30:33,498 - logger - INFO - Failed to Fetch Documents from Bot token: d2bf5104-da2d-42d6-9b69-2daa0c2be67d , Error : 'function' object has no attribute 'find'
+2025-03-07 02:30:33,503 - logger - ERROR - Ensemble retriever creation Failed. Bot Token : d2bf5104-da2d-42d6-9b69-2daa0c2be67d - Error : 'function' object has no attribute 'as_retriever'
+2025-03-07 02:30:33,503 - logger - ERROR - Error handling chat request: 'prompts'
+Traceback (most recent call last):
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\main.py", line 48, in chat
+    prompts = assistant['data']['prompts']
+              ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+KeyError: 'prompts'
+2025-03-07 02:31:34,219 - logger - ERROR - Error fetching chat history for session_id: session-d2bf5104-da2d-42d6-9b69-2daa0c2be67d-1741293400402-shlak2woc - 'function' object has no attribute 'find_one'
+2025-03-07 02:31:34,227 - logger - INFO - Failed to Fetch Documents from Bot token: d2bf5104-da2d-42d6-9b69-2daa0c2be67d , Error : 'function' object has no attribute 'find'
+2025-03-07 02:31:34,227 - logger - ERROR - Ensemble retriever creation Failed. Bot Token : d2bf5104-da2d-42d6-9b69-2daa0c2be67d - Error : 'function' object has no attribute 'as_retriever'
+2025-03-07 02:31:34,227 - logger - ERROR - Error handling chat request: 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\main.py", line 49, in chat
+    follow_up_questions, response = await asyncio.gather(generate_follow_up_questions(chat_history, request.question, retrievers[1],llm, prompts=prompts),generate_answer(request.question, retrievers[0], chat_history,llm,prompts=prompts))
+                                                                                                                      ~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2025-03-07 02:33:17,987 - logger - ERROR - Error fetching chat history for session_id: session-d2bf5104-da2d-42d6-9b69-2daa0c2be67d-1741293400402-shlak2woc - 'function' object is not subscriptable
+2025-03-07 02:33:17,987 - logger - INFO - Failed to Fetch Documents from Bot token: d2bf5104-da2d-42d6-9b69-2daa0c2be67d , Error : 'function' object has no attribute 'find'
+2025-03-07 02:33:26,214 - logger - ERROR - Ensemble retriever creation Failed. Bot Token : d2bf5104-da2d-42d6-9b69-2daa0c2be67d - Error : database names cannot contain the character ' '
+2025-03-07 02:33:26,217 - logger - ERROR - Error handling chat request: 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\main.py", line 49, in chat
+    follow_up_questions, response = await asyncio.gather(generate_follow_up_questions(chat_history, request.question, retrievers[1],llm, prompts=prompts),generate_answer(request.question, retrievers[0], chat_history,llm,prompts=prompts))
+                                                                                                                      ~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2025-03-07 02:34:24,920 - logger - ERROR - Error fetching chat history for session_id: session-d2bf5104-da2d-42d6-9b69-2daa0c2be67d-1741293400402-shlak2woc - 'function' object is not subscriptable
+2025-03-07 02:34:24,920 - logger - INFO - Failed to Fetch Documents from Bot token: d2bf5104-da2d-42d6-9b69-2daa0c2be67d , Error : 'function' object has no attribute 'find'
+2025-03-07 02:34:33,144 - logger - ERROR - Ensemble retriever creation Failed. Bot Token : d2bf5104-da2d-42d6-9b69-2daa0c2be67d - Error : database names cannot contain the character ' '
+2025-03-07 02:34:33,147 - logger - ERROR - Error handling chat request: 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\main.py", line 49, in chat
+    follow_up_questions, response = await asyncio.gather(generate_follow_up_questions(chat_history, request.question, retrievers[1],llm, prompts=prompts),generate_answer(request.question, retrievers[0], chat_history,llm,prompts=prompts))
+                                                                                                                      ~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2025-03-07 02:36:33,004 - logger - ERROR - Error fetching chat history for session_id: session-d2bf5104-da2d-42d6-9b69-2daa0c2be67d-1741293400402-shlak2woc - 'function' object is not subscriptable
+2025-03-07 02:36:33,004 - logger - INFO - Failed to Fetch Documents from Bot token: d2bf5104-da2d-42d6-9b69-2daa0c2be67d , Error : 'function' object has no attribute 'find'
+2025-03-07 02:36:41,225 - logger - ERROR - Ensemble retriever creation Failed. Bot Token : d2bf5104-da2d-42d6-9b69-2daa0c2be67d - Error : database names cannot contain the character ' '
+2025-03-07 02:36:41,225 - logger - ERROR - Error handling chat request: 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\main.py", line 49, in chat
+    follow_up_questions, response = await asyncio.gather(generate_follow_up_questions(chat_history, request.question, retrievers[1],llm, prompts=prompts),generate_answer(request.question, retrievers[0], chat_history,llm,prompts=prompts))
+                                                                                                                      ~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2025-03-07 02:37:37,893 - logger - ERROR - Error fetching chat history for session_id: session-d2bf5104-da2d-42d6-9b69-2daa0c2be67d-1741293400402-shlak2woc - 'function' object is not subscriptable
+2025-03-07 02:37:37,899 - logger - INFO - Failed to Fetch Documents from Bot token: d2bf5104-da2d-42d6-9b69-2daa0c2be67d , Error : 'function' object has no attribute 'find'
+2025-03-07 02:37:46,247 - logger - ERROR - Ensemble retriever creation Failed. Bot Token : d2bf5104-da2d-42d6-9b69-2daa0c2be67d - Error : database names cannot contain the character ' '
+2025-03-07 02:37:46,247 - logger - ERROR - Error handling chat request: 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\main.py", line 49, in chat
+    follow_up_questions, response = await asyncio.gather(generate_follow_up_questions(chat_history, request.question, retrievers[1],llm, prompts=prompts),generate_answer(request.question, retrievers[0], chat_history,llm,prompts=prompts))
+                                                                                                                      ~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2025-03-07 02:38:40,099 - logger - ERROR - Error fetching chat history for session_id: session-d2bf5104-da2d-42d6-9b69-2daa0c2be67d-1741293400402-shlak2woc - 'function' object is not subscriptable
+2025-03-07 02:38:40,100 - logger - INFO - Failed to Fetch Documents from Bot token: d2bf5104-da2d-42d6-9b69-2daa0c2be67d , Error : 'function' object has no attribute 'find'
+2025-03-07 02:38:48,311 - logger - ERROR - Ensemble retriever creation Failed. Bot Token : d2bf5104-da2d-42d6-9b69-2daa0c2be67d - Error : database names cannot contain the character ' '
+2025-03-07 02:38:48,311 - logger - ERROR - Error handling chat request: 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\main.py", line 49, in chat
+    follow_up_questions, response = await asyncio.gather(generate_follow_up_questions(chat_history, request.question, retrievers[1],llm, prompts=prompts),generate_answer(request.question, retrievers[0], chat_history,llm,prompts=prompts))
+                                                                                                                      ~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2025-03-07 02:41:24,581 - logger - INFO - Fetched documents for Bot token: d2bf5104-da2d-42d6-9b69-2daa0c2be67d
+2025-03-07 02:41:24,713 - logger - ERROR - Ensemble retriever creation Failed. Bot Token : d2bf5104-da2d-42d6-9b69-2daa0c2be67d - Error : 'function' object has no attribute 'as_retriever'
+2025-03-07 02:41:24,715 - logger - ERROR - Error handling chat request: 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\main.py", line 49, in chat
+    follow_up_questions, response = await asyncio.gather(generate_follow_up_questions(chat_history, request.question, retrievers[1],llm, prompts=prompts),generate_answer(request.question, retrievers[0], chat_history,llm,prompts=prompts))
+                                                                                                                      ~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2025-03-07 02:42:33,384 - logger - INFO - Fetched documents for Bot token: d2bf5104-da2d-42d6-9b69-2daa0c2be67d
+2025-03-07 02:42:41,736 - logger - ERROR - Ensemble retriever creation Failed. Bot Token : d2bf5104-da2d-42d6-9b69-2daa0c2be67d - Error : not enough values to unpack (expected 3, got 0)
+2025-03-07 02:42:41,736 - logger - ERROR - Error handling chat request: 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\main.py", line 49, in chat
+    follow_up_questions, response = await asyncio.gather(generate_follow_up_questions(chat_history, request.question, retrievers[1],llm, prompts=prompts),generate_answer(request.question, retrievers[0], chat_history,llm,prompts=prompts))
+                                                                                                                      ~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2025-03-07 02:44:13,156 - logger - INFO - Fetched documents for Bot token: d2bf5104-da2d-42d6-9b69-2daa0c2be67d
+2025-03-07 02:44:21,519 - logger - ERROR - Ensemble retriever creation Failed. Bot Token : d2bf5104-da2d-42d6-9b69-2daa0c2be67d - Error : not enough values to unpack (expected 3, got 0)
+2025-03-07 02:44:21,521 - logger - ERROR - Error handling chat request: 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\main.py", line 49, in chat
+    follow_up_questions, response = await asyncio.gather(generate_follow_up_questions(chat_history, request.question, retrievers[1],llm, prompts=prompts),generate_answer(request.question, retrievers[0], chat_history,llm,prompts=prompts))
+                                                                                                                      ~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2025-03-07 02:47:40,441 - logger - INFO - Fetched documents for Bot token: 966f95e9-a25b-48dc-9301-befb07d173c4
+2025-03-07 02:47:48,763 - logger - INFO - Ensemble retriever created.
+2025-03-07 02:47:50,661 - langchain_core.language_models.llms - WARNING - Retrying langchain_google_genai.llms._completion_with_retry.<locals>._completion_with_retry in 4.0 seconds as it raised ResourceExhausted: 429 Quota exceeded for quota metric 'Generate Content API requests per minute' and limit 'GenerateContent request limit per minute for a region' of service 'generativelanguage.googleapis.com' for consumer 'project_number:943034925899'. [reason: "RATE_LIMIT_EXCEEDED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "quota_metric"
+  value: "generativelanguage.googleapis.com/generate_content_requests"
+}
+metadata {
+  key: "quota_location"
+  value: "us-central2"
+}
+metadata {
+  key: "quota_limit"
+  value: "GenerateContentRequestsPerMinutePerProjectPerRegion"
+}
+metadata {
+  key: "quota_limit_value"
+  value: "0"
+}
+metadata {
+  key: "consumer"
+  value: "projects/943034925899"
+}
+, links {
+  description: "Request a higher quota limit."
+  url: "https://cloud.google.com/docs/quotas/help/request_increase"
+}
+].
+2025-03-07 02:47:55,006 - langchain_core.language_models.llms - WARNING - Retrying langchain_google_genai.llms._completion_with_retry.<locals>._completion_with_retry in 4.0 seconds as it raised ResourceExhausted: 429 Quota exceeded for quota metric 'Generate Content API requests per minute' and limit 'GenerateContent request limit per minute for a region' of service 'generativelanguage.googleapis.com' for consumer 'project_number:943034925899'. [reason: "RATE_LIMIT_EXCEEDED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "quota_metric"
+  value: "generativelanguage.googleapis.com/generate_content_requests"
+}
+metadata {
+  key: "quota_location"
+  value: "us-central2"
+}
+metadata {
+  key: "quota_limit"
+  value: "GenerateContentRequestsPerMinutePerProjectPerRegion"
+}
+metadata {
+  key: "quota_limit_value"
+  value: "0"
+}
+metadata {
+  key: "consumer"
+  value: "projects/943034925899"
+}
+, links {
+  description: "Request a higher quota limit."
+  url: "https://cloud.google.com/docs/quotas/help/request_increase"
+}
+].
+2025-03-07 02:47:59,337 - langchain_core.language_models.llms - WARNING - Retrying langchain_google_genai.llms._completion_with_retry.<locals>._completion_with_retry in 4.0 seconds as it raised ResourceExhausted: 429 Quota exceeded for quota metric 'Generate Content API requests per minute' and limit 'GenerateContent request limit per minute for a region' of service 'generativelanguage.googleapis.com' for consumer 'project_number:943034925899'. [reason: "RATE_LIMIT_EXCEEDED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "quota_metric"
+  value: "generativelanguage.googleapis.com/generate_content_requests"
+}
+metadata {
+  key: "quota_location"
+  value: "us-central2"
+}
+metadata {
+  key: "quota_limit"
+  value: "GenerateContentRequestsPerMinutePerProjectPerRegion"
+}
+metadata {
+  key: "quota_limit_value"
+  value: "0"
+}
+metadata {
+  key: "consumer"
+  value: "projects/943034925899"
+}
+, links {
+  description: "Request a higher quota limit."
+  url: "https://cloud.google.com/docs/quotas/help/request_increase"
+}
+].
+2025-03-07 02:48:03,697 - langchain_core.language_models.llms - WARNING - Retrying langchain_google_genai.llms._completion_with_retry.<locals>._completion_with_retry in 8.0 seconds as it raised ResourceExhausted: 429 Quota exceeded for quota metric 'Generate Content API requests per minute' and limit 'GenerateContent request limit per minute for a region' of service 'generativelanguage.googleapis.com' for consumer 'project_number:943034925899'. [reason: "RATE_LIMIT_EXCEEDED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "quota_metric"
+  value: "generativelanguage.googleapis.com/generate_content_requests"
+}
+metadata {
+  key: "quota_location"
+  value: "us-central2"
+}
+metadata {
+  key: "quota_limit"
+  value: "GenerateContentRequestsPerMinutePerProjectPerRegion"
+}
+metadata {
+  key: "quota_limit_value"
+  value: "0"
+}
+metadata {
+  key: "consumer"
+  value: "projects/943034925899"
+}
+, links {
+  description: "Request a higher quota limit."
+  url: "https://cloud.google.com/docs/quotas/help/request_increase"
+}
+].
+2025-03-07 02:48:12,001 - langchain_core.language_models.llms - WARNING - Retrying langchain_google_genai.llms._completion_with_retry.<locals>._completion_with_retry in 10.0 seconds as it raised ResourceExhausted: 429 Quota exceeded for quota metric 'Generate Content API requests per minute' and limit 'GenerateContent request limit per minute for a region' of service 'generativelanguage.googleapis.com' for consumer 'project_number:943034925899'. [reason: "RATE_LIMIT_EXCEEDED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "quota_metric"
+  value: "generativelanguage.googleapis.com/generate_content_requests"
+}
+metadata {
+  key: "quota_location"
+  value: "us-central2"
+}
+metadata {
+  key: "quota_limit"
+  value: "GenerateContentRequestsPerMinutePerProjectPerRegion"
+}
+metadata {
+  key: "quota_limit_value"
+  value: "0"
+}
+metadata {
+  key: "consumer"
+  value: "projects/943034925899"
+}
+, links {
+  description: "Request a higher quota limit."
+  url: "https://cloud.google.com/docs/quotas/help/request_increase"
+}
+].
+2025-03-07 02:48:22,318 - logger - ERROR - Error handling chat request: 'function' object has no attribute 'embed_query'
+Traceback (most recent call last):
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\main.py", line 49, in chat
+    follow_up_questions, response = await asyncio.gather(generate_follow_up_questions(chat_history, request.question, retrievers[1],llm, prompts=prompts),generate_answer(request.question, retrievers[0], chat_history,llm,prompts=prompts))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\bot_response.py", line 85, in generate_follow_up_questions
+    context=ensemble_retreiver.invoke(current_question)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\retrievers.py", line 259, in invoke
+    result = self._get_relevant_documents(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\vectorstores\base.py", line 1076, in _get_relevant_documents
+    self.vectorstore.similarity_search_with_relevance_scores(
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\vectorstores\base.py", line 554, in similarity_search_with_relevance_scores
+    docs_and_similarities = self._similarity_search_with_relevance_scores(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\vectorstores\base.py", line 503, in _similarity_search_with_relevance_scores
+    docs_and_scores = self.similarity_search_with_score(query, k, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_mongodb\vectorstores.py", line 469, in similarity_search_with_score
+    embedding = self._embedding.embed_query(query)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'embed_query'
+2025-03-07 02:52:07,785 - logger - INFO - Fetched documents for Bot token: 966f95e9-a25b-48dc-9301-befb07d173c4
+2025-03-07 02:52:16,101 - logger - INFO - Ensemble retriever created.
+2025-03-07 02:52:17,691 - langchain_core.language_models.llms - WARNING - Retrying langchain_google_genai.llms._completion_with_retry.<locals>._completion_with_retry in 4.0 seconds as it raised ResourceExhausted: 429 Quota exceeded for quota metric 'Generate Content API requests per minute' and limit 'GenerateContent request limit per minute for a region' of service 'generativelanguage.googleapis.com' for consumer 'project_number:943034925899'. [reason: "RATE_LIMIT_EXCEEDED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "quota_metric"
+  value: "generativelanguage.googleapis.com/generate_content_requests"
+}
+metadata {
+  key: "quota_location"
+  value: "us-central2"
+}
+metadata {
+  key: "quota_limit"
+  value: "GenerateContentRequestsPerMinutePerProjectPerRegion"
+}
+metadata {
+  key: "quota_limit_value"
+  value: "0"
+}
+metadata {
+  key: "consumer"
+  value: "projects/943034925899"
+}
+, links {
+  description: "Request a higher quota limit."
+  url: "https://cloud.google.com/docs/quotas/help/request_increase"
+}
+].
+2025-03-07 02:52:22,009 - langchain_core.language_models.llms - WARNING - Retrying langchain_google_genai.llms._completion_with_retry.<locals>._completion_with_retry in 4.0 seconds as it raised ResourceExhausted: 429 Quota exceeded for quota metric 'Generate Content API requests per minute' and limit 'GenerateContent request limit per minute for a region' of service 'generativelanguage.googleapis.com' for consumer 'project_number:943034925899'. [reason: "RATE_LIMIT_EXCEEDED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "quota_metric"
+  value: "generativelanguage.googleapis.com/generate_content_requests"
+}
+metadata {
+  key: "quota_location"
+  value: "us-central2"
+}
+metadata {
+  key: "quota_limit"
+  value: "GenerateContentRequestsPerMinutePerProjectPerRegion"
+}
+metadata {
+  key: "quota_limit_value"
+  value: "0"
+}
+metadata {
+  key: "consumer"
+  value: "projects/943034925899"
+}
+, links {
+  description: "Request a higher quota limit."
+  url: "https://cloud.google.com/docs/quotas/help/request_increase"
+}
+].
+2025-03-07 02:52:26,341 - langchain_core.language_models.llms - WARNING - Retrying langchain_google_genai.llms._completion_with_retry.<locals>._completion_with_retry in 4.0 seconds as it raised ResourceExhausted: 429 Quota exceeded for quota metric 'Generate Content API requests per minute' and limit 'GenerateContent request limit per minute for a region' of service 'generativelanguage.googleapis.com' for consumer 'project_number:943034925899'. [reason: "RATE_LIMIT_EXCEEDED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "quota_metric"
+  value: "generativelanguage.googleapis.com/generate_content_requests"
+}
+metadata {
+  key: "quota_location"
+  value: "us-central2"
+}
+metadata {
+  key: "quota_limit"
+  value: "GenerateContentRequestsPerMinutePerProjectPerRegion"
+}
+metadata {
+  key: "quota_limit_value"
+  value: "0"
+}
+metadata {
+  key: "consumer"
+  value: "projects/943034925899"
+}
+, links {
+  description: "Request a higher quota limit."
+  url: "https://cloud.google.com/docs/quotas/help/request_increase"
+}
+].
+2025-03-07 02:52:30,671 - langchain_core.language_models.llms - WARNING - Retrying langchain_google_genai.llms._completion_with_retry.<locals>._completion_with_retry in 8.0 seconds as it raised ResourceExhausted: 429 Quota exceeded for quota metric 'Generate Content API requests per minute' and limit 'GenerateContent request limit per minute for a region' of service 'generativelanguage.googleapis.com' for consumer 'project_number:943034925899'. [reason: "RATE_LIMIT_EXCEEDED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "quota_metric"
+  value: "generativelanguage.googleapis.com/generate_content_requests"
+}
+metadata {
+  key: "quota_location"
+  value: "us-central2"
+}
+metadata {
+  key: "quota_limit"
+  value: "GenerateContentRequestsPerMinutePerProjectPerRegion"
+}
+metadata {
+  key: "quota_limit_value"
+  value: "0"
+}
+metadata {
+  key: "consumer"
+  value: "projects/943034925899"
+}
+, links {
+  description: "Request a higher quota limit."
+  url: "https://cloud.google.com/docs/quotas/help/request_increase"
+}
+].
+2025-03-07 02:52:38,994 - langchain_core.language_models.llms - WARNING - Retrying langchain_google_genai.llms._completion_with_retry.<locals>._completion_with_retry in 10.0 seconds as it raised ResourceExhausted: 429 Quota exceeded for quota metric 'Generate Content API requests per minute' and limit 'GenerateContent request limit per minute for a region' of service 'generativelanguage.googleapis.com' for consumer 'project_number:943034925899'. [reason: "RATE_LIMIT_EXCEEDED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "quota_metric"
+  value: "generativelanguage.googleapis.com/generate_content_requests"
+}
+metadata {
+  key: "quota_location"
+  value: "us-central2"
+}
+metadata {
+  key: "quota_limit"
+  value: "GenerateContentRequestsPerMinutePerProjectPerRegion"
+}
+metadata {
+  key: "quota_limit_value"
+  value: "0"
+}
+metadata {
+  key: "consumer"
+  value: "projects/943034925899"
+}
+, links {
+  description: "Request a higher quota limit."
+  url: "https://cloud.google.com/docs/quotas/help/request_increase"
+}
+].
+2025-03-07 02:52:49,554 - logger - ERROR - Error handling chat request: 'function' object has no attribute 'embed_query'
+Traceback (most recent call last):
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\main.py", line 49, in chat
+    follow_up_questions, response = await asyncio.gather(generate_follow_up_questions(chat_history, request.question, retrievers[1],llm, prompts=prompts),generate_answer(request.question, retrievers[0], chat_history,llm,prompts=prompts))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\bot_response.py", line 85, in generate_follow_up_questions
+    context=ensemble_retreiver.invoke(current_question)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\retrievers.py", line 259, in invoke
+    result = self._get_relevant_documents(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\vectorstores\base.py", line 1076, in _get_relevant_documents
+    self.vectorstore.similarity_search_with_relevance_scores(
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\vectorstores\base.py", line 554, in similarity_search_with_relevance_scores
+    docs_and_similarities = self._similarity_search_with_relevance_scores(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\vectorstores\base.py", line 503, in _similarity_search_with_relevance_scores
+    docs_and_scores = self.similarity_search_with_score(query, k, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_mongodb\vectorstores.py", line 469, in similarity_search_with_score
+    embedding = self._embedding.embed_query(query)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'embed_query'
+2025-03-07 02:53:10,992 - logger - INFO - Fetched documents for Bot token: 966f95e9-a25b-48dc-9301-befb07d173c4
+2025-03-07 02:53:19,281 - logger - INFO - Ensemble retriever created.
+2025-03-07 02:53:21,338 - langchain.retrievers.multi_query - INFO - Generated queries: ["What's up?", 'Hello there, how can I help you?', 'Greetings!  Is there anything I can assist you with today?']
+2025-03-07 02:53:21,338 - logger - ERROR - Error handling chat request: 'function' object has no attribute 'embed_query'
+Traceback (most recent call last):
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\main.py", line 49, in chat
+    follow_up_questions, response = await asyncio.gather(generate_follow_up_questions(chat_history, request.question, retrievers[1],llm, prompts=prompts),generate_answer(request.question, retrievers[0], chat_history,llm,prompts=prompts))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\bot_response.py", line 85, in generate_follow_up_questions
+    context=ensemble_retreiver.invoke(current_question)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\retrievers.py", line 259, in invoke
+    result = self._get_relevant_documents(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\vectorstores\base.py", line 1076, in _get_relevant_documents
+    self.vectorstore.similarity_search_with_relevance_scores(
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\vectorstores\base.py", line 554, in similarity_search_with_relevance_scores
+    docs_and_similarities = self._similarity_search_with_relevance_scores(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\vectorstores\base.py", line 503, in _similarity_search_with_relevance_scores
+    docs_and_scores = self.similarity_search_with_score(query, k, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_mongodb\vectorstores.py", line 469, in similarity_search_with_score
+    embedding = self._embedding.embed_query(query)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'embed_query'
+2025-03-07 02:56:03,054 - logger - INFO - Fetched documents for Bot token: 966f95e9-a25b-48dc-9301-befb07d173c4
+2025-03-07 02:56:11,330 - logger - INFO - Ensemble retriever created.
+2025-03-07 02:56:13,206 - langchain.retrievers.multi_query - INFO - Generated queries: ["What's up?", 'Greetings.', 'How can I help you?']
+2025-03-07 02:56:13,206 - logger - ERROR - Error handling chat request: 'function' object has no attribute 'embed_query'
+Traceback (most recent call last):
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\main.py", line 49, in chat
+    follow_up_questions, response = await asyncio.gather(generate_follow_up_questions(chat_history, request.question, retrievers[1],llm, prompts=prompts),generate_answer(request.question, retrievers[0], chat_history,llm,prompts=prompts))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\bot_response.py", line 65, in generate_answer
+    response = chain.invoke({
+               ^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\runnables\base.py", line 3022, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\runnables\base.py", line 5360, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\runnables\base.py", line 3729, in invoke
+    output = {key: future.result() for key, future in zip(steps, futures)}
+                   ^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Learning\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\runnables\base.py", line 3713, in _invoke_step
+    return context.run(
+           ^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\runnables\base.py", line 3024, in invoke
+    input = context.run(step.invoke, input, config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain\retrievers\ensemble.py", line 118, in invoke
+    raise e
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain\retrievers\ensemble.py", line 115, in invoke
+    result = self.rank_fusion(input, run_manager=run_manager, config=config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain\retrievers\ensemble.py", line 223, in rank_fusion
+    retriever.invoke(
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\retrievers.py", line 259, in invoke
+    result = self._get_relevant_documents(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain\retrievers\multi_query.py", line 171, in _get_relevant_documents
+    documents = self.retrieve_documents(queries, run_manager)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain\retrievers\multi_query.py", line 209, in retrieve_documents
+    docs = self.retriever.invoke(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\retrievers.py", line 259, in invoke
+    result = self._get_relevant_documents(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\vectorstores\base.py", line 1076, in _get_relevant_documents
+    self.vectorstore.similarity_search_with_relevance_scores(
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\vectorstores\base.py", line 554, in similarity_search_with_relevance_scores
+    docs_and_similarities = self._similarity_search_with_relevance_scores(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\vectorstores\base.py", line 503, in _similarity_search_with_relevance_scores
+    docs_and_scores = self.similarity_search_with_score(query, k, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_mongodb\vectorstores.py", line 469, in similarity_search_with_score
+    embedding = self._embedding.embed_query(query)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'embed_query'
+2025-03-07 02:59:32,003 - logger - INFO - Fetched documents for Bot token: 966f95e9-a25b-48dc-9301-befb07d173c4
+2025-03-07 03:00:09,138 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: BAAI/bge-base-en-v1.5
+2025-03-07 03:00:52,255 - logger - INFO - Ensemble retriever created.
+2025-03-07 03:00:55,427 - langchain.retrievers.multi_query - INFO - Generated queries: ["What's up?", 'Hello there.', 'Greetings.']
+2025-03-07 03:01:16,344 - logger - INFO - Fetched documents for Bot token: 966f95e9-a25b-48dc-9301-befb07d173c4
+2025-03-07 03:01:16,394 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: BAAI/bge-base-en-v1.5
+2025-03-07 03:01:27,355 - logger - INFO - Ensemble retriever created.
+2025-03-07 03:01:27,686 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.25
+2025-03-07 03:01:29,693 - logger - ERROR - Error handling chat request: "Input to PromptTemplate is missing variables {'context'}.  Expected: ['context'] Received: ['question', 'chat_history']\nNote: if you intended {context} to be part of the string and not a variable, please escape it with double curly braces like: '{{context}}'.\nFor troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/INVALID_PROMPT_INPUT "
+Traceback (most recent call last):
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\main.py", line 49, in chat
+    follow_up_questions, response = await asyncio.gather(generate_follow_up_questions(chat_history, request.question, retrievers[1],llm, prompts=prompts),generate_answer(request.question, retrievers[0], chat_history,llm,prompts=prompts))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\chat_assistant_backend\bot_response.py", line 65, in generate_answer
+    response = chain.invoke({
+               ^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\runnables\base.py", line 3022, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\runnables\base.py", line 5360, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\runnables\base.py", line 3729, in invoke
+    output = {key: future.result() for key, future in zip(steps, futures)}
+                   ^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Learning\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\runnables\base.py", line 3713, in _invoke_step
+    return context.run(
+           ^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\runnables\base.py", line 3022, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\runnables\branch.py", line 232, in invoke
+    output = runnable.invoke(
+             ^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\runnables\base.py", line 3024, in invoke
+    input = context.run(step.invoke, input, config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\prompts\base.py", line 210, in invoke
+    return self._call_with_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\runnables\base.py", line 1922, in _call_with_config
+    context.run(
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\runnables\config.py", line 396, in call_func_with_variable_args
+    return func(input, **kwargs)  # type: ignore[call-arg]
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\prompts\base.py", line 184, in _format_prompt_with_error_handling
+    _inner_input = self._validate_input(inner_input)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Learning\Desktop\MyProjects\sara\backend-dev\venv\Lib\site-packages\langchain_core\prompts\base.py", line 178, in _validate_input
+    raise KeyError(
+KeyError: "Input to PromptTemplate is missing variables {'context'}.  Expected: ['context'] Received: ['question', 'chat_history']\nNote: if you intended {context} to be part of the string and not a variable, please escape it with double curly braces like: '{{context}}'.\nFor troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/INVALID_PROMPT_INPUT "
+2025-03-07 03:34:45,681 - logger - INFO - Fetched documents for Bot token: 966f95e9-a25b-48dc-9301-befb07d173c4
+2025-03-07 03:34:45,738 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: BAAI/bge-base-en-v1.5
+2025-03-07 03:34:58,851 - logger - INFO - Ensemble retriever created.
+2025-03-07 03:34:59,373 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.25
+2025-03-07 03:35:03,426 - langchain.retrievers.multi_query - INFO - Generated queries: ['What types of assistance or solutions can you provide?', 'What problems can you help me solve with your capabilities?', 'What are your key features and functionalities?']
+2025-03-07 03:35:03,642 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.25
+2025-03-07 03:35:03,792 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.25
+2025-03-07 03:35:03,959 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.25
+2025-03-07 03:35:22,835 - logger - INFO - Fetched documents for Bot token: 966f95e9-a25b-48dc-9301-befb07d173c4
+2025-03-07 03:35:22,880 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: BAAI/bge-base-en-v1.5
+2025-03-07 03:35:34,642 - logger - INFO - Ensemble retriever created.
+2025-03-07 03:35:39,133 - langchain.retrievers.multi_query - INFO - Generated queries: ['What are your different service tiers and their associated costs?', 'How much does it cost to use your service?  (Focuses on cost directly)', 'Can you provide a price list or breakdown of your fees?']
