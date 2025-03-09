@@ -11,6 +11,7 @@ import asyncio
 from bot_response import generate_answer, generate_follow_up_questions, remove_think_step
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+import time
 
 load_dotenv()
 # Initialize FastAPI
@@ -36,27 +37,44 @@ async def chat(request: ChatRequest):
         ChatResponse: The chatbot's response.
     """
     try:
-        llm=llm_model()
+        # Record the start time
+        start_time = time.time()
+
+        llm = llm_model()
         assistant = get_assistant_details(bot_token=request.bot_token)
         print(assistant)
-        if not assistant.get('status')==200:
-            return JSONResponse({"message":assistant['data']['message']})
-        
+
+        if not assistant.get('status') == 200:
+            return JSONResponse({"message": assistant['data']['message']})
+
+        if assistant['data']['status'] != 'ACTIVE':
+            return ChatResponse(answer="Assistant is Not Active Currently. Please contact admin for activation", questions=[])
+
         chat_history = get_chat_history(request.session_id)
-        retrievers = get_ensemble_retriever(request.bot_token,llm)
-        
+        retrievers = get_ensemble_retriever(request.bot_token, llm)
+
         prompts = assistant['data']['prompts']
-        follow_up_questions, response = await asyncio.gather(generate_follow_up_questions(chat_history, request.question, retrievers[1],llm, prompts=prompts),generate_answer(request.question, retrievers[0], chat_history,llm,prompts=prompts))
+        
+        # Perform asynchronous tasks
+        follow_up_questions, response = await asyncio.gather(
+            generate_follow_up_questions(chat_history, request.question, retrievers[1], llm, prompts=prompts),
+            generate_answer(request.question, retrievers[0], chat_history, llm, prompts=prompts)
+        )
+
         if not response.strip():
             response = "Could you Please rephrase the question with more context?"
         if response.startswith("AI:"):
             response = response[len("AI:"):].strip()
 
-        response=remove_think_step(response)
-        add_message_to_history(request.question, response,request.bot_token,request.session_id)
-    
-        return ChatResponse(answer=response,questions=follow_up_questions["questions"])
-    except Exception as e:
-        logger.error(f"Error handling chat request: {str(e)}",exc_info=True)
-        raise HTTPException(status_code=500, detail=str(e))
+        response = remove_think_step(response)
+        add_message_to_history(request.question, response, request.bot_token, request.session_id)
 
+        # Calculate the elapsed time
+        elapsed_time = time.time() - start_time
+        print(f"Response time: {elapsed_time:.4f} seconds")
+
+        return ChatResponse(answer=response, questions=follow_up_questions["questions"])
+
+    except Exception as e:
+        logger.error(f"Error handling chat request: {str(e)}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))

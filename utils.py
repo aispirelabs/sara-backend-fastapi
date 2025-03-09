@@ -172,18 +172,19 @@ def store_user_data(urls: List[str], bot_token: str, file_urls: List[str]) -> bo
 def add_message_to_history(question, answer, bot_token, session_id):
     try:
         chat_history_collection.update_one(
-            {'session_id': session_id},
-                {
-                    '$set': {"bot_token": bot_token},
-                    '$push': {
-                        'chat_history': {
-                            '$each': [{'timestamp': datetime.utcnow(), 'question': question, 'answer': answer}],
-                            '$slice': -20 
-                        }
+            {'session_id': session_id},  # Search query for a document with the given session_id
+            {
+                '$set': {"bot_token": bot_token},  # Update or set the bot_token field
+                '$push': {
+                    'chat_history': {  # Push a new chat entry to the 'chat_history' array
+                        '$each': [{'timestamp': datetime.utcnow(), 'question': question, 'answer': answer}],  # The new message
+                        # '$slice': -20  # Keep only the most recent 20 chat history entries
                     }
                 },
-                upsert=True
-            )
+                '$setOnInsert': {'created_at': datetime.utcnow()}  # Set 'created_at' only on insert (not update)
+            },
+            upsert=True  # This option means that if no document is found with the given session_id, a new one will be created
+        )
     except Exception as e:
         logger.error(f"Error storing message for session_id: {session_id}, bot token: {bot_token} - {str(e)}")
 
@@ -201,6 +202,7 @@ def get_chat_history(session_id):
 
 def get_related_docs(bot_token):
     try:
+
         docs = vector_collection.find({'bot_token':bot_token},{'text':1})
         logger.info(f"Fetched documents for Bot token: {bot_token}")
         return [Document(page_content=doc['text']) for doc in docs]
@@ -219,7 +221,7 @@ def get_ensemble_retriever(bot_token, llm):
                 "pre_filter": { "bot_token": { "$eq": bot_token } }
             })
         retriever_from_llm=MultiQueryRetriever.from_llm(retriever=retriever,llm=llm)
-
+        print("Documents : ", documents)
         bm25_retriever = BM25Retriever.from_documents(documents)
         bm25_retriever.k = 3
         logger.info("Ensemble retriever created.")

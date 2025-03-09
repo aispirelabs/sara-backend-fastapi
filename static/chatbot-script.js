@@ -1,137 +1,150 @@
 class Chatbot {
-    constructor(options = {}) {
-      this.botId = options.botId || 'default';
-      this.apiEndpoint = options.apiEndpoint || "http://127.0.0.1:8080"//'https://api.aispirelabs.com';
-      this.backendEndpoint = "http://127.0.0.1:8000/api"
-      this.sessionDuration = 3600000; // 1 hour in milliseconds
-      this.defaultStyles = {
-        name: 'Chat Support',
-        backgroundColor: '#ffffff',
-        primaryColor: '#2563eb',
-        primaryHoverColor: '#1d4ed8',
-        senderTextColor: '#ffffff',
-        senderBackgroundColor: '#2563eb',
-        senderFont: 'Inter, system-ui, -apple-system, sans-serif',
-        receiverTextColor: '#1f2937',
-        receiverBackgroundColor: '#f3f4f6',
-        receiverFont: 'Inter, system-ui, -apple-system, sans-serif',
-        chatBackground: '#ffffff',
-        welcomeMessage: "Hi! I'm here to help. How can I assist you today?",
-        avatar_url: 'https://media.istockphoto.com/id/1492548051/vector/chatbot-logo-icon.jpg?s=612x612&w=0&k=20&c=oh9mrvB70HTRt0FkZqOu9uIiiJFH9FaQWW3p4M6iNno=',
-        waveRadius: '15px',
-        pulseSize: '30px',
-        bounceHeight: '25px',
-        environment: 'Beta',
-        powered_by_message: 'Powered by AISPIRELABS',
-        powered_by_target_url: 'https://aispirelabs.com',
-        show_powered_by: true,
-      };
-      this.styles = { ...this.defaultStyles };
-      this.isOpen = false;
-      this.isMinimized = false;
-      this.initialize();
-    }
-  
-    async initialize() {
-      await this.loadMarked();
-      this.sessionId = await this.getOrCreateSessionId();
-      await this.loadStyles();
-      this.createChatbotHTML();
-      this.attachEventListeners();
-      this.injectStyles();
-    }
-  
-    async loadMarked() {
-      if (typeof marked === 'undefined') {
-        const script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
-        script.async = true;
-        await new Promise((resolve, reject) => {
-          script.onload = resolve;
-          script.onerror = reject;
-          document.head.appendChild(script);
-        });
-      }
-    }
-  
-    formatMarkdown(text) {
-      return marked.parse(text, {
-        breaks: true,
-        gfm: true,
+  constructor(options = {}) {
+    this.botId = options.botId || "default";
+    this.apiEndpoint = options.apiEndpoint || "http://127.0.0.1:8080"; //'https://api.aispirelabs.com';
+    this.backendEndpoint = "http://127.0.0.1:8000/api";
+    this.sessionDuration = 3600000; // 1 hour in milliseconds
+    this.defaultStyles = {
+      name: "Chat Support",
+      backgroundColor: "#ffffff",
+      primaryColor: "#2563eb",
+      primaryHoverColor: "#1d4ed8",
+      senderTextColor: "#ffffff",
+      senderBackgroundColor: "#2563eb",
+      senderFont: "Inter, system-ui, -apple-system, sans-serif",
+      receiverTextColor: "#1f2937",
+      receiverBackgroundColor: "#f3f4f6",
+      receiverFont: "Inter, system-ui, -apple-system, sans-serif",
+      chatBackground: "#ffffff",
+      welcomeMessage: "Hi! I'm here to help. How can I assist you today?",
+      avatar_url:
+        "https://media.istockphoto.com/id/1492548051/vector/chatbot-logo-icon.jpg?s=612x612&w=0&k=20&c=oh9mrvB70HTRt0FkZqOu9uIiiJFH9FaQWW3p4M6iNno=",
+      waveRadius: "15px",
+      pulseSize: "30px",
+      bounceHeight: "25px",
+      environment: "Beta",
+      powered_by_message: "Powered by AISPIRELABS",
+      powered_by_target_url: "https://aispirelabs.com",
+      show_powered_by: true,
+    };
+    this.styles = { ...this.defaultStyles };
+    this.isOpen = false;
+    this.isMinimized = false;
+    this.initialize();
+  }
+
+  async initialize() {
+    await this.loadMarked();
+    this.sessionId = await this.getOrCreateSessionId();
+    await this.loadStyles();
+    this.createChatbotHTML();
+    this.attachEventListeners();
+    this.injectStyles();
+  }
+
+  async loadMarked() {
+    if (typeof marked === "undefined") {
+      const script = document.createElement("script");
+      script.src = "https://cdn.jsdelivr.net/npm/marked/marked.min.js";
+      script.async = true;
+      await new Promise((resolve, reject) => {
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.appendChild(script);
       });
     }
-  
-    getTimestamp() {
-      return new Date().toLocaleTimeString([], {
-        hour: '2-digit',
-        minute: '2-digit',
-      });
-    }
-  
-    async getOrCreateSessionId() {
-      const storageKey = `chatbot_session_${this.botId}`;
-      const sessionData = localStorage.getItem(storageKey);
-  
-      if (sessionData) {
-        const { sessionId, timestamp } = JSON.parse(sessionData);
-        const now = Date.now();
-  
-        if (now - timestamp < this.sessionDuration) {
-          return sessionId;
-        }
+  }
+
+  formatMarkdown(text) {
+    return marked.parse(text, {
+      breaks: true,
+      gfm: true,
+    });
+  }
+
+  getTimestamp() {
+    return new Date().toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  }
+
+  async getOrCreateSessionId() {
+    const storageKey = `chatbot_session_${this.botId}`;
+    const sessionData = localStorage.getItem(storageKey);
+
+    if (sessionData) {
+      const { sessionId, timestamp } = JSON.parse(sessionData);
+      const now = Date.now();
+
+      if (now - timestamp < this.sessionDuration) {
+        return sessionId;
       }
-  
+    }
+
+    return this.createNewSession();
+  }
+
+  createNewSession() {
+    const sessionId =
+      "session-" +
+      this.botId +
+      "-" +
+      Date.now() +
+      "-" +
+      Math.random().toString(36).substr(2, 9);
+    const sessionData = {
+      sessionId,
+      timestamp: Date.now(),
+    };
+
+    localStorage.setItem(
+      `chatbot_session_${this.botId}`,
+      JSON.stringify(sessionData)
+    );
+    return sessionId;
+  }
+
+  checkAndRefreshSession() {
+    const storageKey = `chatbot_session_${this.botId}`;
+    const sessionData = JSON.parse(localStorage.getItem(storageKey));
+    const now = Date.now();
+
+    if (now - sessionData.timestamp >= this.sessionDuration) {
       return this.createNewSession();
     }
-  
-    createNewSession() {
-      const sessionId = 'session-' + this.botId + '-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
-      const sessionData = {
-        sessionId,
-        timestamp: Date.now(),
-      };
-  
-      localStorage.setItem(`chatbot_session_${this.botId}`, JSON.stringify(sessionData));
-      return sessionId;
+    return sessionData.sessionId;
+  }
+
+  async loadStyles() {
+    try {
+      const response = await fetch(
+        `${this.backendEndpoint}/assistants/get-styles/${this.botId}/`
+      );
+      const customStyles = await response.json();
+      this.styles = { ...this.defaultStyles, ...customStyles };
+      console.log(this.styles);
+    } catch (error) {
+      console.warn("Failed to load custom styles, using defaults:", error);
     }
-  
-    checkAndRefreshSession() {
-      const storageKey = `chatbot_session_${this.botId}`;
-      const sessionData = JSON.parse(localStorage.getItem(storageKey));
-      const now = Date.now();
-  
-      if (now - sessionData.timestamp >= this.sessionDuration) {
-        return this.createNewSession();
-      }
-      return sessionData.sessionId;
-    }
-  
-    async loadStyles() {
-      try {
-        const response = await fetch(`${this.backendEndpoint}/assistants/get-styles/${this.botId}/`);
-        const customStyles = await response.json();
-        this.styles = { ...this.defaultStyles, ...customStyles };
-      } catch (error) {
-        console.warn('Failed to load custom styles, using defaults:', error);
-      }
-    }
-  
-    createChatbotHTML() {
-      const chatbot = document.createElement('div');
-      chatbot.className = 'cb-chatbot';
-  
-      const envTag = this.styles.environment
-        ? `<span class="cb-env-tag">${this.styles.environment}</span>`
-        : '';
-      const poweredBy = this.styles.show_powered_by
-        ? `<div class="cb-powered-by">
+  }
+
+  createChatbotHTML() {
+    const chatbot = document.createElement("div");
+    chatbot.className = "cb-chatbot";
+
+    const envTag = this.styles.environment
+      ? `<span class="cb-env-tag">${this.styles.environment}</span>`
+      : "";
+    const poweredBy = this.styles.show_powered_by
+      ? `<div class="cb-powered-by">
              <a href="${this.styles.powered_by_target_url}" target="_blank" rel="noopener noreferrer">
                ${this.styles.powered_by_message} ❤️
              </a>
            </div>`
-        : '';
-  
-      chatbot.innerHTML = `
+      : "";
+
+    chatbot.innerHTML = `
         <div class="cb-chat-container">
           <div class="cb-chat-header">
             <div class="cb-chat-header-title">
@@ -201,163 +214,169 @@ class Chatbot {
           </div>
         </button>
       `;
-      document.body.appendChild(chatbot);
-    }
-  
-    attachEventListeners() {
-      const container = document.querySelector('.cb-chatbot');
-      const toggle = container.querySelector('.cb-chat-toggle');
-      const closeBtn = container.querySelector('.cb-close-btn');
-      const minimizeBtn = container.querySelector('.cb-minimize-btn');
-      const form = container.querySelector('.cb-chat-input');
-  
-      toggle.addEventListener('click', () => this.toggleChat());
-      closeBtn.addEventListener('click', () => this.toggleChat());
-      minimizeBtn.addEventListener('click', () => this.toggleMinimize());
-      form.addEventListener('submit', (e) => this.handleSubmit(e));
-  
-      container.addEventListener('click', (e) => {
-        if (e.target.classList.contains('cb-suggestion')) {
-          this.handleSuggestionClick(e.target.textContent);
-        }
-      });
-    }
-  
-    async handleSubmit(e) {
-      e.preventDefault();
-      const input = e.target.querySelector('input');
-      const message = input.value.trim();
-      if (!message) return;
-  
-      this.sessionId = this.checkAndRefreshSession();
-      this.addMessage(message, false);
-      input.value = '';
-  
-      try {
-        this.showTypingIndicator();
-        const response = await fetch(`${this.apiEndpoint}/chat`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            question: message,
-            bot_token: this.botId,
-            session_id: this.sessionId,
-          }),
-        });
-        const data = await response.json();
-        this.hideTypingIndicator();
-        this.addMessage(data.answer, true);
-        if (data.questions) {
-          this.showSuggestions(data.questions);
-        }
-      } catch (error) {
-        console.error('Error:', error);
-        this.hideTypingIndicator();
-        this.addMessage('Sorry, I encountered an error. Please try again later.', true);
+    document.body.appendChild(chatbot);
+  }
+
+  attachEventListeners() {
+    const container = document.querySelector(".cb-chatbot");
+    const toggle = container.querySelector(".cb-chat-toggle");
+    const closeBtn = container.querySelector(".cb-close-btn");
+    const minimizeBtn = container.querySelector(".cb-minimize-btn");
+    const form = container.querySelector(".cb-chat-input");
+
+    toggle.addEventListener("click", () => this.toggleChat());
+    closeBtn.addEventListener("click", () => this.toggleChat());
+    minimizeBtn.addEventListener("click", () => this.toggleMinimize());
+    form.addEventListener("submit", (e) => this.handleSubmit(e));
+
+    container.addEventListener("click", (e) => {
+      if (e.target.classList.contains("cb-suggestion")) {
+        this.handleSuggestionClick(e.target.textContent);
       }
+    });
+  }
+
+  async handleSubmit(e) {
+    e.preventDefault();
+    const input = e.target.querySelector("input");
+    const message = input.value.trim();
+    if (!message) return;
+
+    this.sessionId = this.checkAndRefreshSession();
+    this.addMessage(message, false);
+    input.value = "";
+
+    try {
+      this.showTypingIndicator();
+      const response = await fetch(`${this.apiEndpoint}/chat`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          question: message,
+          bot_token: this.botId,
+          session_id: this.sessionId,
+        }),
+      });
+      const data = await response.json();
+      this.hideTypingIndicator();
+      this.addMessage(data.answer, true);
+      if (data.questions) {
+        this.showSuggestions(data.questions);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      this.hideTypingIndicator();
+      this.addMessage(
+        "Sorry, I encountered an error. Please try again later.",
+        true
+      );
     }
-  
-    addMessage(text, isBot) {
-      const messages = document.querySelector('.cb-messages');
-      const messageDiv = document.createElement('div');
-      messageDiv.className = `cb-message ${isBot ? 'cb-bot-message' : 'cb-user-message'}`;
-  
-      const formattedText = isBot ? this.formatMarkdown(text) : text;
-  
-      messageDiv.innerHTML = `
+  }
+
+  addMessage(text, isBot) {
+    const messages = document.querySelector(".cb-messages");
+    const messageDiv = document.createElement("div");
+    messageDiv.className = `cb-message ${
+      isBot ? "cb-bot-message" : "cb-user-message"
+    }`;
+
+    const formattedText = isBot ? this.formatMarkdown(text) : text;
+
+    messageDiv.innerHTML = `
         <div class="cb-message-content">
           ${isBot ? formattedText : `<p>${formattedText}</p>`}
           <span class="cb-timestamp">${this.getTimestamp()}</span>
         </div>
       `;
-  
-      messages.appendChild(messageDiv);
-  
-      if (isBot) {
-          // Wait for the DOM to update with the new message
-          setTimeout(() => {
-              const messageContent = messageDiv.querySelector('.cb-message-content');
-              const lineHeight = parseFloat(window.getComputedStyle(messageContent).lineHeight) || 16; // Get line-height or default to 16px
-              const scrollTarget = messageDiv.offsetTop - lineHeight*6; // Offset for 3 lines of content
-  
-              messages.scrollTop = scrollTarget; // Scroll to show the first 3 lines
-          }, 0);
-      } else {
-          // For user messages, scroll to the bottom as usual
-          messages.scrollTop = messages.scrollHeight;
-      }
+
+    messages.appendChild(messageDiv);
+
+    if (isBot) {
+      // Wait for the DOM to update with the new message
+      setTimeout(() => {
+        const messageContent = messageDiv.querySelector(".cb-message-content");
+        const lineHeight =
+          parseFloat(window.getComputedStyle(messageContent).lineHeight) || 16; // Get line-height or default to 16px
+        const scrollTarget = messageDiv.offsetTop - lineHeight * 6; // Offset for 3 lines of content
+
+        messages.scrollTop = scrollTarget; // Scroll to show the first 3 lines
+      }, 0);
+    } else {
+      // For user messages, scroll to the bottom as usual
+      messages.scrollTop = messages.scrollHeight;
+    }
   }
-  
-    showSuggestions(questions) {
-      const suggestionsDiv = document.querySelector('.cb-suggestions');
-      if (!questions || questions.length === 0) {
-        suggestionsDiv.style.display = 'none';
-        return;
-      }
-  
-      suggestionsDiv.style.display = 'flex';
-      suggestionsDiv.innerHTML = questions
-        .map((q) => `<button class="cb-suggestion">${q}</button>`)
-        .join('');
+
+  showSuggestions(questions) {
+    const suggestionsDiv = document.querySelector(".cb-suggestions");
+    if (!questions || questions.length === 0) {
+      suggestionsDiv.style.display = "none";
+      return;
     }
-  
-    handleSuggestionClick(question) {
-      const input = document.querySelector('.cb-chat-input input');
-      input.value = question;
-      input.form.dispatchEvent(new Event('submit'));
+
+    suggestionsDiv.style.display = "flex";
+    suggestionsDiv.innerHTML = questions
+      .map((q) => `<button class="cb-suggestion">${q}</button>`)
+      .join("");
+  }
+
+  handleSuggestionClick(question) {
+    const input = document.querySelector(".cb-chat-input input");
+    input.value = question;
+    input.form.dispatchEvent(new Event("submit"));
+  }
+
+  showTypingIndicator() {
+    const indicator = document.querySelector(".cb-typing-indicator");
+    indicator.classList.remove("cb-hidden");
+  }
+
+  hideTypingIndicator() {
+    const indicator = document.querySelector(".cb-typing-indicator");
+    indicator.classList.add("cb-hidden");
+  }
+
+  toggleChat() {
+    const container = document.querySelector(".cb-chat-container");
+    const toggle = document.querySelector(".cb-chat-toggle");
+    this.isOpen = !this.isOpen;
+
+    if (this.isOpen) {
+      container.style.display = "flex";
+      container.classList.add("cb-slide-in");
+      toggle.classList.add("cb-hide");
+    } else {
+      container.classList.remove("cb-slide-in");
+      container.classList.add("cb-slide-out");
+      setTimeout(() => {
+        container.style.display = "none";
+        container.classList.remove("cb-slide-out");
+        toggle.classList.remove("cb-hide");
+      }, 300);
     }
-  
-    showTypingIndicator() {
-      const indicator = document.querySelector('.cb-typing-indicator');
-      indicator.classList.remove('cb-hidden');
+  }
+
+  toggleMinimize() {
+    const container = document.querySelector(".cb-chat-container");
+    const minimizeBtn = container.querySelector(".cb-minimize-btn");
+    const minimizeIcon = minimizeBtn.querySelector(".cb-minimize-icon");
+    const maximizeIcon = minimizeBtn.querySelector(".cb-maximize-icon");
+
+    this.isMinimized = !this.isMinimized;
+    container.classList.toggle("cb-minimized");
+
+    if (this.isMinimized) {
+      minimizeIcon.style.display = "none";
+      maximizeIcon.style.display = "block";
+    } else {
+      minimizeIcon.style.display = "block";
+      maximizeIcon.style.display = "none";
     }
-  
-    hideTypingIndicator() {
-      const indicator = document.querySelector('.cb-typing-indicator');
-      indicator.classList.add('cb-hidden');
-    }
-  
-    toggleChat() {
-      const container = document.querySelector('.cb-chat-container');
-      const toggle = document.querySelector('.cb-chat-toggle');
-      this.isOpen = !this.isOpen;
-  
-      if (this.isOpen) {
-        container.style.display = 'flex';
-        container.classList.add('cb-slide-in');
-        toggle.classList.add('cb-hide');
-      } else {
-        container.classList.remove('cb-slide-in');
-        container.classList.add('cb-slide-out');
-        setTimeout(() => {
-          container.style.display = 'none';
-          container.classList.remove('cb-slide-out');
-          toggle.classList.remove('cb-hide');
-        }, 300);
-      }
-    }
-  
-    toggleMinimize() {
-      const container = document.querySelector('.cb-chat-container');
-      const minimizeBtn = container.querySelector('.cb-minimize-btn');
-      const minimizeIcon = minimizeBtn.querySelector('.cb-minimize-icon');
-      const maximizeIcon = minimizeBtn.querySelector('.cb-maximize-icon');
-  
-      this.isMinimized = !this.isMinimized;
-      container.classList.toggle('cb-minimized');
-  
-      if (this.isMinimized) {
-        minimizeIcon.style.display = 'none';
-        maximizeIcon.style.display = 'block';
-      } else {
-        minimizeIcon.style.display = 'block';
-        maximizeIcon.style.display = 'none';
-      }
-    }
-  
-    injectStyles() {
-      const style = document.createElement('style');
-      style.textContent = `
+  }
+
+  injectStyles() {
+    const style = document.createElement("style");
+    style.textContent = `
         @keyframes cb-wave {
           0% { transform: rotate(-8deg) scale(1); }
           50% { transform: rotate(15deg) scale(1.2); }
@@ -925,13 +944,12 @@ class Chatbot {
           }
         }
       `;
-      document.head.appendChild(style);
-    }
+    document.head.appendChild(style);
   }
-  
-  if (typeof module !== 'undefined' && module.exports) {
-    module.exports = Chatbot;
-  } else {
-    window.Chatbot = Chatbot;
-  }
-  
+}
+
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = Chatbot;
+} else {
+  window.Chatbot = Chatbot;
+}
