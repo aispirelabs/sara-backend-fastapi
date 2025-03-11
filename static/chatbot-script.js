@@ -1,8 +1,8 @@
 class Chatbot {
   constructor(options = {}) {
     this.botId = options.botId || "default";
-    this.apiEndpoint = options.apiEndpoint || "http://127.0.0.1:8080"; //'https://api.aispirelabs.com';
-    this.backendEndpoint = "http://127.0.0.1:8000/api";
+    this.apiEndpoint = options.apiEndpoint || "https://api.aispirelabs.com";
+    this.backendEndpoint = "http://sara-admin.aispirelabs.com/api";
     this.sessionDuration = 3600000; // 1 hour in milliseconds
     this.defaultStyles = {
       name: "Chat Support",
