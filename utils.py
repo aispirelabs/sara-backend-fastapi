@@ -12,7 +12,7 @@ import jwt
 import os
 from datetime import datetime, timedelta
 from logger import logger
-from constants import pwd_context,SECRET_KEY,ALGORITHM, chat_history_collection, embedding_model, vector_search,vector_collection, vector_store
+from constants import pwd_context,SECRET_KEY,ALGORITHM, embedding_model, vector_search, vector_store#chat_history_collection,vector_collection
 from dotenv import load_dotenv
 from langchain.retrievers.multi_query import MultiQueryRetriever
 from langchain_community.retrievers import BM25Retriever
@@ -23,6 +23,7 @@ load_dotenv()
 #User Authentication
 # Utility functions
 # MongoDB Client
+
 
 def get_text_chunks(documents: List[Document]) -> List[Document]:
     """
@@ -221,7 +222,7 @@ def get_ensemble_retriever(bot_token, llm):
                 "pre_filter": { "bot_token": { "$eq": bot_token } }
             })
         retriever_from_llm=MultiQueryRetriever.from_llm(retriever=retriever,llm=llm)
-        print("Documents : ", documents)
+        # print("Documents : ", documents)
         bm25_retriever = BM25Retriever.from_documents(documents)
         bm25_retriever.k = 3
         logger.info("Ensemble retriever created.")
@@ -240,3 +241,13 @@ def get_assistant_details(bot_token:str):
     except Exception as e:
         logger.error(f"Failed to Fetch Assistant Details Bot Token: {bot_token} - Error : {str(e)}")
         return {"message":"Failed to fetch assisstant detials", "error":str(e)}
+
+def format_context(docs):
+    context_parts = []
+    for doc in docs:
+        context_parts.append(f"Title: {doc.metadata['title']}\nSummary: {doc.metadata['summary']}\nContent: {doc.page_content}")
+    return "\n\n".join(context_parts)
+
+def get_retriever(bot_token):
+    retriever = vector_store().as_retriever(search_type="similarity", search_kwargs={"k": 5, "pre_filter": { "bot_token": { "$eq": bot_token } }})
+    return retriever

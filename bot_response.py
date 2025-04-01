@@ -1,3 +1,4 @@
+import os
 import re
 from langchain_core.prompts import ChatPromptTemplate, PromptTemplate, MessagesPlaceholder,format_document
 from typing import List, Tuple
@@ -7,8 +8,12 @@ from langchain_core.runnables import Runnable, RunnableBranch, RunnableLambda, R
 from langchain_core.output_parsers import StrOutputParser, JsonOutputParser
 # from prompt_templates import QUESTION_ANSWER_PROMPT, STANDALONE_QUESTION_PROMPT, GENERATE_FOLLOWUP_QUESTIONS_PROMPT #, TEST_QUESTION_ANSWER_PROMPT
 from operator import itemgetter
-
-
+from constants import clear_orphaned_history_messages, remove_oldest_conversation_if_needed, DB_NAME, HISTORY_COLLECTION_NAME
+from utils import format_context
+from langchain_mongodb.chat_message_histories import MongoDBChatMessageHistory
+from langchain_core.runnables.history import RunnableWithMessageHistory
+from dotenv import load_dotenv
+load_dotenv()
 async def generate_answer(question, ensemble_retriever, chat_history,llm_model, prompts):   
     CONDENSE_QUESTION_PROMPT = PromptTemplate.from_template(prompts['STANDALONE_QUESTION_PROMPT'])
     ANSWER_PROMPT = ChatPromptTemplate.from_messages(
@@ -105,3 +110,49 @@ def remove_think_step(text):
     thinking_pattern=r"\n?<think>.*?</think>\n?"
     clean_text=re.sub(thinking_pattern,"",text,flags=re.DOTALL)
     return clean_text
+
+async def generate_answer_v2(question: str, session_id:str, retriever, llm_model, prompts):
+    standalone_question_prompt = ChatPromptTemplate.from_messages(
+        [
+            ("system", prompts['STANDALONE_QUESTION_PROMPT']),
+            MessagesPlaceholder(variable_name="history"),
+            ("human", "{question}"),
+        ]
+    )
+
+    parse_output = StrOutputParser()
+    question_chain = standalone_question_prompt | llm_model | parse_output
+    retriever_chain = RunnablePassthrough.assign(context=question_chain | retriever | format_context)
+
+    rag_prompt = ChatPromptTemplate.from_messages(
+        [
+            ("system", prompts['QUESTION_ANSWER_PROMPT']),
+            MessagesPlaceholder(variable_name="history"),
+            ("human", "{question}"),
+        ]
+    )
+
+    rag_chain = (
+        retriever_chain
+        | rag_prompt
+        | llm_model
+        | parse_output
+    )
+
+    def get_session_history(session_id: str) -> MongoDBChatMessageHistory:
+        return MongoDBChatMessageHistory(os.getenv("MONGO_DB_URI"), session_id, database_name=DB_NAME, collection_name=HISTORY_COLLECTION_NAME)
+
+
+    with_message_history = RunnableWithMessageHistory(
+        rag_chain,
+        get_session_history,
+        input_messages_key="question",
+        history_messages_key="history",
+    )
+
+    # async def main_chatbot(user_input: str, session_id: str) -> dict:
+    # await clear_orphaned_history_messages()
+    await remove_oldest_conversation_if_needed(session_id)
+    response = with_message_history.invoke({"question": question}, {"configurable": {"session_id": session_id}})
+    return {'status': 'success', 'answer': response}
+    # return await main_chatbot(question, session_id)
