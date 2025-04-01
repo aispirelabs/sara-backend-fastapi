@@ -56,11 +56,12 @@ class Chatbot {
   }
 
   formatMarkdown(text) {
-    return marked.parse(text, {
-      breaks: true,
-      gfm: true,
-    });
-  }
+  return marked.parse(text, {
+    breaks: true,
+    gfm: true,
+  }).replace(/<a /g, '<a target="_blank" rel="noopener noreferrer" ');
+}
+
 
   getTimestamp() {
     return new Date().toLocaleTimeString([], {
