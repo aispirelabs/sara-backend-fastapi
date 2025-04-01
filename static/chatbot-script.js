@@ -26,6 +26,8 @@ class Chatbot {
       powered_by_message: "Powered by AISPIRELABS",
       powered_by_target_url: "https://aispirelabs.com",
       show_powered_by: true,
+      logo_url: "https://aispirelabs.com/static/logo_white.png",
+
     };
     this.styles = { ...this.defaultStyles };
     this.isOpen = false;
@@ -210,7 +212,8 @@ class Chatbot {
           <div class="cb-icon-wrapper">
             <div class="cb-pulse-ring"></div>
             <div class="cb-default-icon">
-              <img src="https://aispirelabs.com/static/logo_white.png" alt="Chat Icon" class="cb-toggle-icon">
+              <img src=${this.styles.logo_url} alt="Chat Icon" class="cb-toggle-icon">
+
             </div>
           </div>
         </button>
